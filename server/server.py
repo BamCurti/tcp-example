@@ -1,30 +1,32 @@
 import socket
     
-def create():
-    # Create the TCP socket
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+class Server():
+    def __init__(self, port=4040, hostname='localhost'):
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    #bind the socket to the port
-    port = 4040
-    hostname = 'localhost'
-    
-    server_address = (hostname, port)
-    print('Running the server on http://{}:{}'.format(*server_address))
-    sock.bind(server_address)
-    
-    # Listen for incoming connections
-    sock.listen(1)
-    return sock
-    
-def run(sock, path):
-    while True:
-        connection, client_address = sock.accept()
+        #bind the socket to the port
+        server_address = (hostname, port)
         
-        with open(path, 'wb') as f:        
+        print('Running the server on http://{}:{}'.format(*server_address))
+        self.sock.bind(server_address)
+        
+        # Listen for incoming connections
+        self.sock.listen(1)
+        
+    def get_aes_key(self):
+        pass
+        
+    def decrypt(self, buffer):
+        pass
+        
+    def run(self, path):
+        while True:
+            connection, client_address = self.sock.accept()
             try:
+                f = open(path, 'wb')
                 print(f'Connection from {client_address}')
                 
-                # Receive the data in small chunks and retrasmit it
+                # Receive the data in small chunks                
                 while True:
                     data = connection.recv(1024)
                     f.write(data)
@@ -32,6 +34,10 @@ def run(sock, path):
                     if not data:
                         print(f'No data from {client_address}')
                         break
+                    
+            except Exception as e:
+                f.close()
+                print(e)
                 
             finally:
                 connection.close()
