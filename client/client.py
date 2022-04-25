@@ -1,7 +1,6 @@
 import socket
-import sys
 
-def main():
+def create_server():
     # Create a TCP/IP socket
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -12,11 +11,9 @@ def main():
     server_address = (hostname, port)
     print('connecting to {} port {}'.format(*server_address))
     sock.connect(server_address)
-
-    send_message(sock)
-
+    return sock
         
-def send_message(sock):
+def send_message(sock):    
     try:
         # Send data
         message = b'This is the message.  It will be repeated.'
@@ -36,5 +33,19 @@ def send_message(sock):
         print('closing socket')
         sock.close()    
         
-if __name__ == '__main__':
-    main()
+def send_file(sock, filename):
+    try:
+        with open(filename, 'rb') as f:
+            l = f.read(1024)
+            while l:
+                print('Sending...')
+                sock.send(l)
+                l = f.read(1024)
+                
+    except Exception as e:
+        print(f'Error sending {filename}')
+        print(e)
+            
+    finally:
+        print('closing socket')
+        sock.close()         
