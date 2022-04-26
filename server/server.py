@@ -1,7 +1,14 @@
 import socket
-    
+import nacl.secret
+import nacl.utils
+
 class Server():
+    buffer: bytes = None
+    encrypted_buffer : bytes = None
+    key: str = None
+    
     def __init__(self, port=4040, hostname='localhost'):
+        self.get_aes_key()
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         #bind the socket to the port
@@ -14,11 +21,14 @@ class Server():
         self.sock.listen(1)
         
     def get_aes_key(self):
-        pass
+        with open('server/secret.txt', 'rb') as f:
+            self.key = f.read()
+            
         
     def decrypt(self, buffer):
-        pass
-        
+        box = nacl.secret.SecretBox(self.key)
+        return box.decrypt(buffer)
+
     def run(self, path):
         while True:
             connection, client_address = self.sock.accept()
@@ -29,7 +39,9 @@ class Server():
                 # Receive the data in small chunks                
                 while True:
                     data = connection.recv(1024)
+                    data = self.decrypt(data)
                     f.write(data)
+                    print(data)
                     
                     if not data:
                         print(f'No data from {client_address}')
