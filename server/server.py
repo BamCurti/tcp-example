@@ -1,11 +1,13 @@
 import socket
 import nacl.secret
 import nacl.utils
+from nacl.signing import VerifyKey
 
 class Server():
     buffer: bytes = None
     encrypted_buffer : bytes = None
     key: str = None
+
     
     def __init__(self, port=4040, hostname='localhost'):
         self.get_aes_key()
@@ -21,13 +23,24 @@ class Server():
         self.sock.listen(1)
         
     def get_aes_key(self):
-        with open('server/secret.txt', 'rb') as f:
+        with open('server/secret.bin', 'rb') as f:
             self.key = f.read()
             
+    def read_sign(self):
+        #Read the signing key generated from client
+        with open('sign.bin', 'rb') as f:
+            self.verify_key_bytes = f.read()
+        print('Sign read!')
+        
+        self.verify_key = VerifyKey(self.verify_key_bytes)
         
     def decrypt(self, buffer):
+        #first, lets designing
+        buf = self.verify_key.verify(buffer)
+        
+        #then, decrypt
         box = nacl.secret.SecretBox(self.key)
-        return box.decrypt(buffer)
+        return box.decrypt(buf)
 
     def run(self, path):
         while True:

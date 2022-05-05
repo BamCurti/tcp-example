@@ -1,6 +1,7 @@
 import socket
 import nacl.secret
 import nacl.utils
+from nacl.signing import SigningKey
 
 class Client():
     buffer:bytes=None #Raw buffer
@@ -21,12 +22,15 @@ class Client():
         self.sock.connect(server_address)  
         
     def get_aes_key(self):
-        with open('server/secret.txt', 'rb') as f:
+        with open('server/secret.bin', 'rb') as f:
             self.key = f.read()
         
     def encrypt(self, buffer):
+        #first, encrypt it
         box = nacl.secret.SecretBox(self.key)
-        return box.encrypt(buffer)
+        
+        #last, lets sign it
+        return self.signing_key.sign(box.encrypt(buffer))
             
     def send_file(self, filename):
         try:
@@ -47,3 +51,12 @@ class Client():
             self.sock.close()
             print('File sent!')
 
+    def sign(self):
+        #Generate a new random signing key
+        self.signing_key = SigningKey.generate()
+        verify_key = self.signing_key.verify_key
+        
+        with open('sign.bin', 'wb') as f:
+            f.write(verify_key.encode())
+            
+        print('Sign generated!')
