@@ -1,0 +1,74 @@
+2022-05-16 16:48:10,033 - Key generated
+2022-05-16 16:48:10,033 - File written to key.bin
+2022-05-16 16:48:10,033 - Read file from test.txt
+2022-05-16 16:48:10,033 - File written to test.bin
+2022-05-16 16:48:10,033 - File encypted: test.bin
+2022-05-16 16:48:10,034 - Read file from test.bin
+2022-05-16 16:48:10,034 - File written to test.decrypt.txt
+2022-05-16 16:48:10,034 - File decrypted successfully: test.decrypt.txt
+2022-05-16 16:48:10,034 - File written to sign.bin
+2022-05-16 16:48:10,034 - Signing key generated: sign.bin
+2022-05-16 16:48:10,035 - Read file from test.txt
+2022-05-16 16:48:10,035 - File written to test.signed.bin
+2022-05-16 16:48:10,035 - File test.txt signed: test.signed.bin
+2022-05-16 16:48:10,035 - File verified: test.signed.bin
+2022-05-16 16:52:55,900 - Key generated
+2022-05-16 16:52:55,900 - File written to key.bin
+2022-05-16 16:52:55,900 - Read file from test.txt
+2022-05-16 16:52:55,900 - File written to test.bin
+2022-05-16 16:52:55,900 - File encypted: test.bin
+2022-05-16 16:52:55,901 - Read file from test.bin
+2022-05-16 16:52:55,901 - File written to test.decrypt.txt
+2022-05-16 16:52:55,901 - File decrypted successfully: test.decrypt.txt
+2022-05-16 16:52:55,901 - File written to sign.bin
+2022-05-16 16:52:55,901 - Signing key generated: sign.bin
+2022-05-16 16:52:55,902 - Read file from test.txt
+2022-05-16 16:52:55,902 - File written to test.signed.bin
+2022-05-16 16:52:55,902 - File test.txt signed: test.signed.bin
+2022-05-16 16:52:55,902 - Read file from test.signed.bin
+2022-05-16 16:54:22,050 - Key generated
+2022-05-16 16:54:22,051 - File written to key.bin
+2022-05-16 16:54:22,051 - Read file from test.txt
+2022-05-16 16:54:22,052 - File written to test.bin
+2022-05-16 16:54:22,052 - File encypted: test.bin
+2022-05-16 16:54:22,052 - Read file from test.bin
+2022-05-16 16:54:22,052 - File written to test.decrypt.txt
+2022-05-16 16:54:22,052 - File decrypted successfully: test.decrypt.txt
+2022-05-16 16:54:22,053 - File written to sign.bin
+2022-05-16 16:54:22,053 - Signing key generated: sign.bin
+2022-05-16 16:54:22,053 - Read file from test.txt
+2022-05-16 16:54:22,054 - File written to test.signed.bin
+2022-05-16 16:54:22,054 - File test.txt signed: test.signed.bin
+2022-05-16 16:54:22,054 - Read file from test.signed.bin
+2022-05-16 16:54:27,380 - Key generated
+2022-05-16 16:54:27,380 - File written to key.bin
+2022-05-16 16:54:27,381 - Read file from test.txt
+2022-05-16 16:54:27,381 - File written to test.bin
+2022-05-16 16:54:27,382 - File encypted: test.bin
+2022-05-16 16:54:27,382 - Read file from test.bin
+2022-05-16 16:54:27,383 - File written to test.decrypt.txt
+2022-05-16 16:54:27,383 - File decrypted successfully: test.decrypt.txt
+2022-05-16 16:54:27,384 - File written to sign.bin
+2022-05-16 16:54:27,384 - Signing key generated: sign.bin
+2022-05-16 16:54:27,384 - Read file from test.txt
+2022-05-16 16:54:27,385 - File written to test.signed.bin
+2022-05-16 16:54:27,385 - File test.txt signed: test.signed.bin
+2022-05-16 16:54:27,385 - Read file from test.signed.bin
+2022-05-16 16:55:31,386 - Key generated
+2022-05-16 16:55:31,386 - File written to key.bin
+2022-05-16 16:55:31,386 - Read file from test.txt
+2022-05-16 16:55:31,386 - File written to test.bin
+2022-05-16 16:55:31,387 - File encypted: test.bin
+2022-05-16 16:55:31,387 - Read file from test.bin
+2022-05-16 16:55:31,387 - File written to test.decrypt.txt
+2022-05-16 16:55:31,387 - File decrypted successfully: test.decrypt.txt
+2022-05-16 16:55:31,388 - File written to sign.bin
+2022-05-16 16:55:31,388 - Signing key generated: sign.bin
+2022-05-16 16:55:31,388 - Read file from test.txt
+2022-05-16 16:55:31,388 - File written to test.signed.bin
+2022-05-16 16:55:31,389 - File test.txt signed: test.signed.bin
+2022-05-16 16:55:31,389 - Read file from sign.bin
+2022-05-16 16:55:31,390 - Sign read from sign.bin
+2022-05-16 16:55:31,392 - Read file from test.signed.bin
+2022-05-16 16:55:31,395 - File written to test.verified.txt
+2022-05-16 16:55:31,395 - File verified: test.signed.bin
